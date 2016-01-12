@@ -70,8 +70,21 @@
 				   	 您的视频
 				   	 <button class="am-btn am-badge-warning am-btn-xs am-fr" data-am-popover="{content: '点我管理您的视频', trigger: 'hover focus'}" onclick="javascript:location.href='${base}/video/myVideo/'">${videoSum}</button>
 				  </li>
-				  <c:if test="${not empty is_admin && is_admin==1}">
-				  <li>
+				  <c:if test="${systemEditOpen!=1}">
+					  <c:if test="${not empty is_admin && is_admin==1}">
+					  <li>
+					   <i class="am-icon-hand-o-right"></i>
+						 快捷入口
+						<div class="am-btn-group am-btn-group-xs am-fr">
+						  <button type="button" class="am-btn am-btn-secondary" onclick="javascript:location.href='${base}/blog/add/'"> 写博客</button>
+						  <button type="button" class="am-btn am-btn-secondary" onclick="javascript:location.href='${base}/beauty/add/'"> 传美图</button>
+						  <button type="button" class="am-btn am-btn-secondary" onclick="javascript:location.href='${base}/video/add/'">发视频</button>
+						</div>
+					  </li>
+					  </c:if>
+				  </c:if>
+				  <c:if test="${systemEditOpen==1}">
+					<li>
 				   <i class="am-icon-hand-o-right"></i>
 				   	 快捷入口
 					<div class="am-btn-group am-btn-group-xs am-fr">
