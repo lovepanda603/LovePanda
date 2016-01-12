@@ -1,0 +1,11 @@
+#admin-sidebar ul a:HOVER{
+	cursor: pointer;
+}
+html,body{
+	height: 100%;
+}
+@media only screen and (max-width: 640px){
+	.admin-content{
+		width: 100%;
+	}
+}

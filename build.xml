@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="LovePanda" default="init" basedir=".">
+
+
+  <property name="src" location="src"/>
+  <property name="classes" location="WebRoot\WEB-INF\classes"/>
+  <property name="RESIN_HOME" location="G:\apache-tomcat-7.0.55"/>
+
+  <target name="init">
+    <tstamp/>
+	<!--
+    <delete dir="${classes}"/>
+    <mkdir dir="${classes}"/>
+    <javac  destdir="${classes}" encoding="UTF-8" debug="true" includeantruntime="false">
+    	<src path="crmsrc"/>
+    	<src path="oaSpring"/>
+    	<src path="src"/>
+      <classpath>
+        <fileset dir="${RESIN_HOME}">
+          <include name="lib\*.jar"/>
+        </fileset>
+        <fileset dir="WebRoot\WEB-INF\lib">
+          <include name="*.jar"/>
+        </fileset>
+      </classpath>
+    </javac>
+	-->
+    <copy todir="${classes}">
+      <fileset dir="${src}">
+        <exclude name="**/*.java"/>
+      </fileset>
+    </copy>
+  </target>
+</project>
