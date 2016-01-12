@@ -685,7 +685,7 @@ public class IndexController extends BaseController
                             + "%' AND be.deleted=0 UNION SELECT vi.id,vi.title,vi.keyword,vi.view,vi.content,vi.user_id,vi.create_time,u3.username,u3.avatar,3 AS TYPE FROM video vi JOIN USER u3 ON vi.user_id=u3.id WHERE vi.title LIKE '%"
                             + keyword + "%' OR vi.keyword LIKE '%" + keyword
                             + "%' )al ORDER BY al." + rank + " DESC");
-            List<Record> result = new ArrayList<>();
+            List<Record> result = new ArrayList();
             for (Record r : list.getList())
             {
                 String contentShow = "";
@@ -705,7 +705,7 @@ public class IndexController extends BaseController
                 }
                 result.add(r);
             }
-            Page<Record> resultPage = new Page<>(result, list.getPageNumber(),
+            Page<Record> resultPage = new Page(result, list.getPageNumber(),
                     list.getPageSize(), list.getTotalPage(),
                     list.getTotalRow());
             renderJson(g.toJson(list));
@@ -721,7 +721,7 @@ public class IndexController extends BaseController
                             + keyword
                             + "%' AND bl.ispublic=1 AND bl.deleted=0)al ORDER BY al."
                             + rank + " DESC");
-            List<Record> result = new ArrayList<>();
+            List<Record> result = new ArrayList();
             for (Record r : list.getList())
             {
                 String contentShow = "";
@@ -741,7 +741,7 @@ public class IndexController extends BaseController
                 }
                 result.add(r);
             }
-            Page<Record> resultPage = new Page<>(result, list.getPageNumber(),
+            Page<Record> resultPage = new Page(result, list.getPageNumber(),
                     list.getPageSize(), list.getTotalPage(),
                     list.getTotalRow());
             renderJson(g.toJson(list));
@@ -756,7 +756,7 @@ public class IndexController extends BaseController
                             + "%' AND be.deleted=0 OR be.keyword LIKE '%"
                             + keyword + "%' AND be.deleted=0 )al ORDER BY al."
                             + rank + " DESC");
-            List<Record> result = new ArrayList<>();
+            List<Record> result = new ArrayList();
             for (Record r : list.getList())
             {
                 String contentShow = "";
@@ -776,7 +776,7 @@ public class IndexController extends BaseController
                 }
                 result.add(r);
             }
-            Page<Record> resultPage = new Page<>(result, list.getPageNumber(),
+            Page<Record> resultPage = new Page(result, list.getPageNumber(),
                     list.getPageSize(), list.getTotalPage(),
                     list.getTotalRow());
             renderJson(g.toJson(list));
@@ -789,7 +789,7 @@ public class IndexController extends BaseController
                     "FROM(SELECT vi.id,vi.title,vi.keyword,vi.view,vi.content,vi.user_id,vi.create_time,u3.username,u3.avatar,3 AS TYPE FROM video vi JOIN USER u3 ON vi.user_id=u3.id WHERE vi.title LIKE '%"
                             + keyword + "%' OR vi.keyword LIKE '%" + keyword
                             + "%' )al ORDER BY al." + rank + " DESC");
-            List<Record> result = new ArrayList<>();
+            List<Record> result = new ArrayList();
             for (Record r : list.getList())
             {
                 String contentShow = "";
@@ -809,7 +809,7 @@ public class IndexController extends BaseController
                 }
                 result.add(r);
             }
-            Page<Record> resultPage = new Page<>(result, list.getPageNumber(),
+            Page<Record> resultPage = new Page(result, list.getPageNumber(),
                     list.getPageSize(), list.getTotalPage(),
                     list.getTotalRow());
             renderJson(g.toJson(list));
