@@ -23,7 +23,7 @@
 	}
 	#picrecommenddiv img{
 		width: 100%;
-		height: 350px;
+		height: 100%;
 	}
 	.am-badge{
 		margin-right: 2px;
@@ -72,33 +72,39 @@
 		    
 			<c:forEach items="${blogList}" var="l">
 			  	<c:if test="${not empty l.image}">
-			  		<div class="inner-box blog-img am-gallery-item">
-						<a class="blog-a-curse" href="${base}/blog/detail/${l.id}">
-							<img class="am_img animated" alt="${l.title}" src="${base}/images/index/loading.gif" data-original="${base}/attached/blog/${l.image}" >
-						</a>
-						<div class="blog-header">
-				  			<span class="index-label index-label-blog">博客</span>
-							<a href="${base}/blog/categorySearcher?category=${l.category}" class="blog-category">${l.categorystr }</a>
-							<h2><a href="${base}/blog/detail/${l.id}">${l.title}</a></h2>
-						</div>
-						<p class="blog-ext">
-							<span class="blog-ext-ico">
-								<i class="am-icon-user  blog-ext-ico"></i>
-								${l.username}
-							</span>
-							<span class="blog-ext-ico"><i class="am-icon-clock-o blog-ext-ico"></i><fmt:formatDate value="${l.create_time}" pattern="yyyy-MM-dd"/></span>
-							<span class="blog-ext-ico">
-								<i class="am-icon-eye blog-ext-ico"></i>
-								${l.view}
-							</span>
-						</p>
-						<p class="blog-content-show">${l.content_show}...<br>
-						<i class="am-icon-search-plus"></i><span class="blog-keyword-show">${l.keyword}</span>
-						</p>
+			  		<div class="inner-box blog-img am-gallery-item ">
+			  			<div class="am-g">
+				  			<div class="am-u-sm-3">
+								<a class="blog-a-curse" href="${base}/blog/detail/${l.id}">
+									<img class="am_img animated" alt="${l.title}" src="${base}/images/index/loading.gif" data-original="${base}/attached/blog/${l.image}" >
+								</a>
+				  			</div>
+				  			<div class="am-u-sm-9">
+								<div class="blog-header">
+						  			<span class="index-label index-label-blog">博客</span>
+									<a href="${base}/blog/categorySearcher?category=${l.category}" class="blog-category">${l.categorystr }</a>
+									<h2><a href="${base}/blog/detail/${l.id}">${l.title}</a></h2>
+								</div>
+								<p class="blog-ext">
+									<span class="blog-ext-ico">
+										<i class="am-icon-user  blog-ext-ico"></i>
+										${l.username}
+									</span>
+									<span class="blog-ext-ico"><i class="am-icon-clock-o blog-ext-ico"></i><fmt:formatDate value="${l.create_time}" pattern="yyyy-MM-dd"/></span>
+									<span class="blog-ext-ico">
+										<i class="am-icon-eye blog-ext-ico"></i>
+										${l.view}
+									</span>
+								</p>
+								<p class="blog-content-show">${l.content_show}...<br>
+								</p>
+								<span class="blog-keyword-show">${l.keyword}</span>
+				  			</div>
+			  			</div>
 			 		</div>
 			  	</c:if>
 			  	<c:if test="${empty l.image}">
-				  	<div class="inner-box blog-img">
+				  	<div class="inner-box blog-img ">
 						<div class="blog-header">
 							<a href="${base}/blog/categorySearcher?category=${l.category}" class="blog-category">${l.categorystr }</a>
 							<span class="index-label index-label-blog">博客</span>
@@ -149,32 +155,66 @@
 		    
 			<!-- 美图 -->
 			<c:forEach items="${beautyList}" var="bl">
-				<div class="beauty-inner-box">
-					<div class="blog-header">
-						<span class="index-label index-label-beauty">美图</span>
-						<h2><a href="${base}/beauty/detail/${bl.id}">${bl.title}</a></h2>
-					</div>
-					<p class="blog-ext">
-						<span class="blog-ext-ico">
-							<i class="am-icon-user am-icon-sm blog-ext-ico"></i>
-							${bl.username}
-						</span>
-						<span class="blog-ext-ico"><i class="am-icon-clock-o am-icon-sm blog-ext-ico"></i><fmt:formatDate value="${l.create_time}" pattern="yyyy-MM-dd"/></span>
-						<span class="blog-ext-ico">
-							<i class="am-icon-eye am-icon-sm blog-ext-ico"></i>
-							${bl.view}
-						</span>
-						<span class="beauty-keyword-show blog-ext-ico">${bl.keyword}</span>
-					</p>
-					<p class="beauty-content-show">${bl.content}</p>
-					<div id="beauty-image-show">
-						<c:forEach items="${bl.img}" var="i" varStatus="ic">
-							<c:if test="${ic.count<=3}">
-								<img class="am-radius am_img animated" src="${base}/images/index/loading.gif" data-original="${base}/attached/beauty/s_${i.key}" title="${i.value}"></<img>
-							</c:if>
-						</c:forEach>
-					</div>
-		 		</div>
+				<c:if test="${fn:length(bl.img)==1}">
+					<div class="beauty-inner-box ">
+						<div class="am-g">
+							<div class="am-u-sm-3">
+								<c:forEach items="${bl.img}" var="i" varStatus="ic">
+									<c:if test="${ic.count==1}">
+										<img class="am-radius am_img animated" src="${base}/images/index/loading.gif" data-original="${base}/attached/beauty/s_${i.key}" title="${i.value}" style="width: 100%;height: 100%"></<img>
+									</c:if>
+								</c:forEach>
+							</div>
+							<div class="am-u-sm-9">
+								<div class="blog-header">
+									<span class="index-label index-label-beauty">美图</span>
+									<h2><a href="${base}/beauty/detail/${bl.id}">${bl.title}</a></h2>
+								</div>
+								<p class="blog-ext">
+									<span class="blog-ext-ico">
+										<i class="am-icon-user  blog-ext-ico"></i>
+										${bl.username}
+									</span>
+									<span class="blog-ext-ico"><i class="am-icon-clock-o  blog-ext-ico"></i><fmt:formatDate value="${l.create_time}" pattern="yyyy-MM-dd"/></span>
+									<span class="blog-ext-ico">
+										<i class="am-icon-eye  blog-ext-ico"></i>
+										${bl.view}
+									</span>
+									<span class="beauty-keyword-show blog-ext-ico">${bl.keyword}</span>
+								</p>
+								<p class="beauty-content-show">${bl.content}...</p>
+							</div>
+						</div>
+				 	</div>
+				</c:if>
+				<c:if test="${fn:length(bl.img)!=1}">
+					<div class="beauty-inner-box ">
+						<div class="blog-header">
+							<span class="index-label index-label-beauty">美图</span>
+							<h2><a href="${base}/beauty/detail/${bl.id}">${bl.title}</a></h2>
+						</div>
+						<p class="blog-ext">
+							<span class="blog-ext-ico">
+								<i class="am-icon-user  blog-ext-ico"></i>
+								${bl.username}
+							</span>
+							<span class="blog-ext-ico"><i class="am-icon-clock-o  blog-ext-ico"></i><fmt:formatDate value="${l.create_time}" pattern="yyyy-MM-dd"/></span>
+							<span class="blog-ext-ico">
+								<i class="am-icon-eye  blog-ext-ico"></i>
+								${bl.view}
+							</span>
+							<span class="beauty-keyword-show blog-ext-ico">${bl.keyword}</span>
+						</p>
+						<p class="beauty-content-show">${bl.content}...</p>
+						<div id="beauty-image-show">
+							<c:forEach items="${bl.img}" var="i" varStatus="ic">
+								<c:if test="${ic.count<=3}">
+									<img class="am-radius am_img animated" src="${base}/images/index/loading.gif" data-original="${base}/attached/beauty/s_${i.key}" title="${i.value}"></<img>
+								</c:if>
+							</c:forEach>
+						</div>
+			 		</div>
+				</c:if>
 			</c:forEach>
 			
 				
@@ -188,9 +228,10 @@
 		<!-- 底部 -->	
 		<%@ include file="/WEB-INF/content/common/footer.jsp"%>
 	<script type="text/javascript">
+	<!--视频推荐区图片的滚动-->
 	$(function(){
 		$('#demo4').scrollbox({
-			switchItems: 3,
+			switchItems: 1,//一次只滚动一张
 		    distance: 120
 		  });
 	});

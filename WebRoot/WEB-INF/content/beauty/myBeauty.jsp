@@ -46,34 +46,67 @@
 			  <li><a href="${base}/beauty/">美图</a></li>
 			  <li class="am-active">我的美图</li>
 			</ol>
-			<c:forEach items="${beautyPage.list}" var="l">
-				<div class="beauty-inner-box">
-					<div class="blog-header">
-						<h2><a href="${base}/beauty/detail/${l.id}">${l.title}</a></h2>
-					</div>
-					<p class="blog-ext">
-						<span class="blog-ext-ico">
-							<i class="am-icon-user am-icon-sm blog-ext-ico"></i>
-							${l.username}
-						</span>
-						<span class="blog-ext-ico"><i class="am-icon-clock-o am-icon-sm blog-ext-ico"></i><fmt:formatDate value="${l.create_time}" pattern="yyyy-MM-dd"/></span>
-						<span class="blog-ext-ico">
-							<i class="am-icon-eye am-icon-sm blog-ext-ico"></i>
-							${l.view}
-						</span>
-						<span class="beauty-keyword-show blog-ext-ico">${l.keyword}</span>
-						<a class="am-badge am-badge-danger am-round" onclick="myBeautyDelete(${l.id})">删除</a>
-					</p>
-
-					<p class="blog-content-show">${l.content}</p>
-					<div id="beauty-image-show">
-						<c:forEach items="${l.img}" var="i" varStatus="ic">
-							<c:if test="${ic.count<=3}">
-								<img class="am-radius am_img animated" src="${base}/attached/beauty/s_${i.key}" title="${i.value}" onerror="javascript:this.src='${base}/attached/beauty/showdefault.jpg'" ></<img>
-							</c:if>
-						</c:forEach>
-					</div>
-		 		</div>
+			<c:forEach items="${beautyPage.list}" var="bl">
+				<c:if test="${fn:length(bl.img)==1}">
+					<div class="beauty-inner-box ">
+						<div class="am-g">
+							<div class="am-u-sm-3">
+								<c:forEach items="${bl.img}" var="i" varStatus="ic">
+									<c:if test="${ic.count==1}">
+										<img class="am-radius am_img animated" src="${base}/images/index/loading.gif" data-original="${base}/attached/beauty/s_${i.key}" title="${i.value}" style="width: 100%;height: 100%"></<img>
+									</c:if>
+								</c:forEach>
+							</div>
+							<div class="am-u-sm-9">
+								<div class="blog-header">
+									<h2><a href="${base}/beauty/detail/${bl.id}">${bl.title}</a></h2>
+								</div>
+								<p class="blog-ext">
+									<span class="blog-ext-ico">
+										<i class="am-icon-user  blog-ext-ico"></i>
+										${bl.username}
+									</span>
+									<span class="blog-ext-ico"><i class="am-icon-clock-o  blog-ext-ico"></i><fmt:formatDate value="${l.create_time}" pattern="yyyy-MM-dd"/></span>
+									<span class="blog-ext-ico">
+										<i class="am-icon-eye  blog-ext-ico"></i>
+										${bl.view}
+									</span>
+									<span class="beauty-keyword-show blog-ext-ico">${bl.keyword}</span>
+									<a class="am-badge am-badge-danger am-round" onclick="myBeautyDelete(${bl.id})">删除</a>
+								</p>
+								<p class="beauty-content-show">${bl.content}...</p>
+							</div>
+						</div>
+				 	</div>
+				</c:if>
+				<c:if test="${fn:length(bl.img)!=1}">
+					<div class="beauty-inner-box ">
+						<div class="blog-header">
+							<h2><a href="${base}/beauty/detail/${bl.id}">${bl.title}</a></h2>
+						</div>
+						<p class="blog-ext">
+							<span class="blog-ext-ico">
+								<i class="am-icon-user  blog-ext-ico"></i>
+								${bl.username}
+							</span>
+							<span class="blog-ext-ico"><i class="am-icon-clock-o  blog-ext-ico"></i><fmt:formatDate value="${l.create_time}" pattern="yyyy-MM-dd"/></span>
+							<span class="blog-ext-ico">
+								<i class="am-icon-eye  blog-ext-ico"></i>
+								${bl.view}
+							</span>
+							<span class="beauty-keyword-show blog-ext-ico">${bl.keyword}</span>
+							<a class="am-badge am-badge-danger am-round" onclick="myBeautyDelete(${bl.id})">删除</a>
+						</p>
+						<p class="beauty-content-show">${bl.content}...</p>
+						<div id="beauty-image-show">
+							<c:forEach items="${bl.img}" var="i" varStatus="ic">
+								<c:if test="${ic.count<=3}">
+									<img class="am-radius am_img animated" src="${base}/images/index/loading.gif" data-original="${base}/attached/beauty/s_${i.key}" title="${i.value}"></<img>
+								</c:if>
+							</c:forEach>
+						</div>
+			 		</div>
+				</c:if>
 			</c:forEach>
 			<c:set var="currentPage" value="${beautyPage.pageNumber}" />
 			<c:set var="totalPage" value="${beautyPage.totalPage}" />
@@ -136,13 +169,6 @@
 			location.href="${base}/beauty/delete/"+id;
 		}
 	};
-	//图片滑动效果
-	$(".am_img").on('mouseover', function(){
-	    $(this).addClass('bounceIn');
-	});
-	$('.am_img').on('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
-	    $('.am_img').removeClass('bounceIn');
-	});
 		$("img").lazyload({ effect : 'fadeIn'});
 </script>
 </body>

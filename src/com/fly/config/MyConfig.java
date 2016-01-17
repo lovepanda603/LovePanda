@@ -43,6 +43,7 @@ import com.jfinal.ext.handler.ContextPathHandler;
 import com.jfinal.kit.PathKit;
 import com.jfinal.kit.PropKit;
 import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
+import com.jfinal.plugin.activerecord.tx.TxByRegex;
 import com.jfinal.plugin.druid.DruidPlugin;
 import com.jfinal.plugin.druid.DruidStatViewHandler;
 import com.jfinal.plugin.ehcache.EhCachePlugin;
@@ -135,6 +136,7 @@ public class MyConfig extends JFinalConfig
         logger.info("配置全局拦截器开始..");
         me.addGlobalActionInterceptor(new PhoneInterceptor());
         me.addGlobalActionInterceptor(new LogInterceptor());
+        me.add(new TxByRegex("(.*save.*|.*update.*|.*delete.*)"));
         logger.info("配置全局拦截器结束..");
     }
 

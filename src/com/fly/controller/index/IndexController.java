@@ -692,10 +692,10 @@ public class IndexController extends BaseController
                 if (!empty(r.getStr("content")))
                 {
                     contentShow = HtmlUtil.getNoHTMLString(
-                            HtmlUtil.Decode(r.getStr("content")), 150);
-                    if (!empty(contentShow) && contentShow.length() > 150)
+                            HtmlUtil.Decode(r.getStr("content")), 100);
+                    if (!empty(contentShow) && contentShow.length() > 100)
                     {
-                        contentShow = contentShow.substring(0, 149);
+                        contentShow = contentShow.substring(0, 99);
                     }
                     r.set("content", contentShow);
                 }
@@ -728,10 +728,10 @@ public class IndexController extends BaseController
                 if (!empty(r.getStr("content")))
                 {
                     contentShow = HtmlUtil.getNoHTMLString(
-                            HtmlUtil.Decode(r.getStr("content")), 150);
-                    if (!empty(contentShow) && contentShow.length() > 150)
+                            HtmlUtil.Decode(r.getStr("content")), 100);
+                    if (!empty(contentShow) && contentShow.length() > 100)
                     {
-                        contentShow = contentShow.substring(0, 149);
+                        contentShow = contentShow.substring(0, 99);
                     }
                     r.set("content", contentShow);
                 }
@@ -763,10 +763,10 @@ public class IndexController extends BaseController
                 if (!empty(r.getStr("content")))
                 {
                     contentShow = HtmlUtil.getNoHTMLString(
-                            HtmlUtil.Decode(r.getStr("content")), 150);
-                    if (!empty(contentShow) && contentShow.length() > 150)
+                            HtmlUtil.Decode(r.getStr("content")), 100);
+                    if (!empty(contentShow) && contentShow.length() > 100)
                     {
-                        contentShow = contentShow.substring(0, 149);
+                        contentShow = contentShow.substring(0, 99);
                     }
                     r.set("content", contentShow);
                 }
@@ -796,10 +796,10 @@ public class IndexController extends BaseController
                 if (!empty(r.getStr("content")))
                 {
                     contentShow = HtmlUtil.getNoHTMLString(
-                            HtmlUtil.Decode(r.getStr("content")), 150);
-                    if (!empty(contentShow) && contentShow.length() > 150)
+                            HtmlUtil.Decode(r.getStr("content")), 100);
+                    if (!empty(contentShow) && contentShow.length() > 100)
                     {
-                        contentShow = contentShow.substring(0, 149);
+                        contentShow = contentShow.substring(0, 99);
                     }
                     r.set("content", contentShow);
                 }

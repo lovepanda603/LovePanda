@@ -31,7 +31,7 @@
 			  	<div class="am-u-md-12">
 	        	<div class="banner_nav">
 	        		<span class="am-icon-caret-right">
-	        			筛选：
+	        			排序：
 	        		</span>
 	        		<c:if test="${rank eq '1'}">
 		        		<a href="${base}/index/search?keyword=${keyword}&rank=0">人气最高</a>
@@ -110,13 +110,13 @@
 					    	html+=" <div class='am-list-main'>";
 					    	html+="<h3 class='am-list-item-hd am_list_title am_list_title_s'>";
 					    	if(n.columns.TYPE=="1"){
-					    		html+="<a href='"+url+"/blog/detail/+"+n.columns.id+"' class=''>"+n.columns.title+"</a>";
+					    		html+="<a href='"+url+"/blog/detail/"+n.columns.id+"' class='' target='_blank'>"+n.columns.title+"</a>";
 					    	}
 					    	if(n.columns.TYPE=="2"){
-					    		html+="<a href='"+url+"/beauty/detail/+"+n.columns.id+"' class=''>"+n.columns.title+"</a>";
+					    		html+="<a href='"+url+"/beauty/detail/"+n.columns.id+"' class='' target='_blank'>"+n.columns.title+"</a>";
 					    	}
 					    	if(n.columns.TYPE=="3"){
-					    		html+="<a href='"+url+"/video/detail/+"+n.columns.id+"' class=''>"+n.columns.title+"</a>";
+					    		html+="<a href='"+url+"/video/detail/"+n.columns.id+"' class='' target='_blank'>"+n.columns.title+"</a>";
 					    	}
 					    	html+="</h3>";
 					    	html+="<div class='am_list_author'>";
@@ -187,13 +187,13 @@
 						    	html+=" <div class='am-list-main'>";
 						    	html+="<h3 class='am-list-item-hd am_list_title am_list_title_s'>";
 						    	if(n.columns.TYPE=="1"){
-						    		html+="<a href='"+url+"/blog/detail/+"+n.columns.id+"' class=''>"+n.columns.title+"</a>";
+						    		html+="<a href='"+url+"/blog/detail/"+n.columns.id+"' class='' target='_blank'>"+n.columns.title+"</a>";
 						    	}
 						    	if(n.columns.TYPE=="2"){
-						    		html+="<a href='"+url+"/beauty/detail/+"+n.columns.id+"' class=''>"+n.columns.title+"</a>";
+						    		html+="<a href='"+url+"/beauty/detail/"+n.columns.id+"' class='' target='_blank'>"+n.columns.title+"</a>";
 						    	}
 						    	if(n.columns.TYPE=="3"){
-						    		html+="<a href='"+url+"/video/detail/+"+n.columns.id+"' class=''>"+n.columns.title+"</a>";
+						    		html+="<a href='"+url+"/video/detail/"+n.columns.id+"' class='' target='_blank'>"+n.columns.title+"</a>";
 						    	}
 						    	html+="</h3>";
 						    	html+="<div class='am_list_author'>";
@@ -266,13 +266,13 @@
 						    	html+=" <div class='am-list-main'>";
 						    	html+="<h3 class='am-list-item-hd am_list_title am_list_title_s'>";
 						    	if(n.columns.TYPE=="1"){
-						    		html+="<a href='"+url+"/blog/detail/+"+n.columns.id+"' class=''>"+n.columns.title+"</a>";
+						    		html+="<a href='"+url+"/blog/detail/"+n.columns.id+"' class='' target='_blank'>"+n.columns.title+"</a>";
 						    	}
 						    	if(n.columns.TYPE=="2"){
-						    		html+="<a href='"+url+"/beauty/detail/+"+n.columns.id+"' class=''>"+n.columns.title+"</a>";
+						    		html+="<a href='"+url+"/beauty/detail/"+n.columns.id+"' class='' target='_blank'>"+n.columns.title+"</a>";
 						    	}
 						    	if(n.columns.TYPE=="3"){
-						    		html+="<a href='"+url+"/video/detail/+"+n.columns.id+"' class=''>"+n.columns.title+"</a>";
+						    		html+="<a href='"+url+"/video/detail/"+n.columns.id+"' class='' target='_blank'>"+n.columns.title+"</a>";
 						    	}
 						    	html+="</h3>";
 						    	html+="<div class='am_list_author'>";
@@ -345,13 +345,13 @@
 						    	html+=" <div class='am-list-main'>";
 						    	html+="<h3 class='am-list-item-hd am_list_title am_list_title_s'>";
 						    	if(n.columns.TYPE=="1"){
-						    		html+="<a href='"+url+"/blog/detail/+"+n.columns.id+"' class=''>"+n.columns.title+"</a>";
+						    		html+="<a href='"+url+"/blog/detail/"+n.columns.id+"' class='' target='_blank'>"+n.columns.title+"</a>";
 						    	}
 						    	if(n.columns.TYPE=="2"){
-						    		html+="<a href='"+url+"/beauty/detail/+"+n.columns.id+"' class=''>"+n.columns.title+"</a>";
+						    		html+="<a href='"+url+"/beauty/detail/"+n.columns.id+"' class='' target='_blank'>"+n.columns.title+"</a>";
 						    	}
 						    	if(n.columns.TYPE=="3"){
-						    		html+="<a href='"+url+"/video/detail/+"+n.columns.id+"' class=''>"+n.columns.title+"</a>";
+						    		html+="<a href='"+url+"/video/detail/"+n.columns.id+"' class='' target='_blank'>"+n.columns.title+"</a>";
 						    	}
 						    	html+="</h3>";
 						    	html+="<div class='am_list_author'>";

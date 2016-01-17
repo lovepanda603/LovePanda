@@ -260,9 +260,9 @@ img{
 }
 .blog-img .blog-a-curse img{
 	vertical-align: middle;
-	width: 150px;
-	margin-right: 10px;
+	width: 100%;
 }
+
 .blog-header{
 	display: block;
 	margin-bottom: 10px;
@@ -311,7 +311,8 @@ img{
 	margin: 0 0 0rem;
 }
 .blog-keyword-show{
-	padding-top: 0px;
+	display: block;
+	margin-top: 10px;
 }
 .blog-keyword-show a{
 
@@ -471,6 +472,9 @@ img{
 .beauty-inner-box:hover {
 	box-shadow:2px 2px 8px rgba(0,0,0,.2);
 	border-color:#d6d6d6;
+}
+.beauty-inner-box img{
+	max-height: 150px;
 }
 
 .beauty-myBeauty-delete{

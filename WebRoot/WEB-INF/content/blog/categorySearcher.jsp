@@ -104,13 +104,7 @@
 		}
 	 })
  });
- $(".am_img").on('mouseover', function(){
-	    $(this).addClass('bounceIn');
-	});
-	$('.am_img').on('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
-	    $('.am_img').removeClass('bounceIn');
-	});
-		$("img").lazyload({ effect : 'fadeIn'});
+$("img").lazyload({ effect : 'fadeIn'});
 </script>
 
 	</div>

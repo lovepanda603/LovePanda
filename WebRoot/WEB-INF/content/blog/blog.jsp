@@ -29,22 +29,31 @@
 			  <li><a href="${base}/blog">博客</a></li>
 			  <li class="am-active">列表</li>
 			</ol>
-			<div class="am-fr">
-				<c:if test="${ranktype eq 'default'}">
-					<a class="am-badge am-badge-primary " href="${base}/blog/">默认</a>
-					<a class="am-badge  " href="${base}/blog?ranktype=latest">最新</a>
-					<a class="am-badge  " href="${base}/blog?ranktype=hot">最热</a>
-				</c:if>
-				<c:if test="${ranktype eq 'latest'}">
-					<a class="am-badge  " href="${base}/blog/">默认</a>
-					<a class="am-badge am-badge-primary " href="${base}/blog?ranktype=latest">最新</a>
-					<a class="am-badge  " href="${base}/blog?ranktype=hot">最热</a>
-				</c:if>
-				<c:if test="${ranktype eq 'hot'}">
-					<a class="am-badge  " href="${base}/blog/">默认</a>
-					<a class="am-badge  " href="${base}/blog?ranktype=latest">最新</a>
-					<a class="am-badge  am-badge-primary" href="${base}/blog?ranktype=hot">最热</a>
-				</c:if>
+			<div class="banner_navbg">
+		    	<div class="am-g">
+				  	<div class="am-u-md-12">
+		        	<div class="banner_nav am-fr">
+		        		<span class="am-icon-caret-right">
+		        			排序：
+		        		</span>
+		        		<c:if test="${ranktype eq 'default'}">
+							<a class="banner_hover"  href="${base}/blog/">默认</a>
+							<a href="${base}/blog?ranktype=latest">最新</a>
+							<a href="${base}/blog?ranktype=hot">最热</a>
+						</c:if>
+						<c:if test="${ranktype eq 'latest'}">
+							<a href="${base}/blog/">默认</a>
+							<a class="banner_hover" href="${base}/blog?ranktype=latest">最新</a>
+							<a href="${base}/blog?ranktype=hot">最热</a>
+						</c:if>
+						<c:if test="${ranktype eq 'hot'}">
+							<a href="${base}/blog/">默认</a>
+							<a href="${base}/blog?ranktype=latest">最新</a>
+							<a class="banner_hover" href="${base}/blog?ranktype=hot">最热</a>
+						</c:if>
+		        	</div>
+		        	</div>
+			    </div>
 			</div>
 		  	<%@ include file="/WEB-INF/content/common/blogcontent.jsp"%>
 			<c:set var="currentPage" value="${blogPage.pageNumber}" />
@@ -127,14 +136,7 @@
 		}
 	 })
  });
-//图片滑动效果
-	$(".am_img").on('mouseover', function(){
-	    $(this).addClass('bounceIn');
-	});
-	$('.am_img').on('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
-	    $('.am_img').removeClass('bounceIn');
-	});
-		$("img").lazyload({ effect : 'fadeIn'});
+$("img").lazyload({ effect : 'fadeIn'});
 </script>
 
 	</div>

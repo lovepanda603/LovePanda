@@ -54,7 +54,7 @@ public class BeautyController extends BaseController
             if (!empty(b.getStr("content")))
             {
                 content_show = HtmlUtil.getNoHTMLString(
-                        HtmlUtil.Decode(b.getStr("content")), 150);
+                        HtmlUtil.Decode(b.getStr("content")), 100);
             }
             every.put("content", content_show);
             results.add(every);
@@ -213,7 +213,7 @@ public class BeautyController extends BaseController
             if (!empty(b.getStr("content")))
             {
                 content_show = HtmlUtil.getNoHTMLString(
-                        HtmlUtil.Decode(b.getStr("content")), 150);
+                        HtmlUtil.Decode(b.getStr("content")), 100);
             }
             every.put("content", content_show);
             results.add(every);

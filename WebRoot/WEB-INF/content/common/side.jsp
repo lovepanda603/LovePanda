@@ -226,7 +226,7 @@ $(document).ready(function(){
 		</div>
 	</div>
 </c:if>
-<%--  <c:if test="${not isPhone}">
+  <c:if test="${not isPhone}">
 	<div data-am-sticky="{animation: 'slide-top'}">
 		<script type="text/javascript">
 			/*300*250 创建于 2015-10-31*/
@@ -235,7 +235,7 @@ $(document).ready(function(){
 		<script src="http://cpro.baidustatic.com/cpro/ui/c.js"
 			type="text/javascript"></script>
 	</div>
-</c:if> --%>
+</c:if> 
 <!-- 下面是手机部分 -->
 <!-- 是手机就取消浮动 -->
 <c:if test="${isPhone}">
