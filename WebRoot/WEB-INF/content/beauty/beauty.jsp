@@ -57,7 +57,7 @@
 										<i class="am-icon-user  blog-ext-ico"></i>
 										${bl.username}
 									</span>
-									<span class="blog-ext-ico"><i class="am-icon-clock-o  blog-ext-ico"></i><fmt:formatDate value="${l.create_time}" pattern="yyyy-MM-dd"/></span>
+									<span class="blog-ext-ico"><i class="am-icon-clock-o  blog-ext-ico"></i><fmt:formatDate value="${bl.create_time}" pattern="yyyy-MM-dd"/></span>
 									<span class="blog-ext-ico">
 										<i class="am-icon-eye  blog-ext-ico"></i>
 										${bl.view}
@@ -79,7 +79,7 @@
 								<i class="am-icon-user  blog-ext-ico"></i>
 								${bl.username}
 							</span>
-							<span class="blog-ext-ico"><i class="am-icon-clock-o  blog-ext-ico"></i><fmt:formatDate value="${l.create_time}" pattern="yyyy-MM-dd"/></span>
+							<span class="blog-ext-ico"><i class="am-icon-clock-o  blog-ext-ico"></i><fmt:formatDate value="${bl.create_time}" pattern="yyyy-MM-dd"/></span>
 							<span class="blog-ext-ico">
 								<i class="am-icon-eye  blog-ext-ico"></i>
 								${bl.view}
