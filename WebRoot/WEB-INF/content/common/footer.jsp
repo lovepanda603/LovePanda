@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-    <!-- <script type="text/javascript">
+     <script type="text/javascript">
 	    /*120*270 创建于 2015-10-16*/
 		var cpro_id = "u2355208";
 	</script>
@@ -15,7 +15,7 @@
 		  var s = document.getElementsByTagName("script")[0]; 
 		  s.parentNode.insertBefore(hm, s);
 		})();
-	</script> -->
+	</script> 
 	<c:if test="${not isPhone}">
 		<style type="text/css">
 			.side-tool{position:fixed;width:54px;height:350px;right:0;top:35%;}
@@ -60,6 +60,7 @@
                 <li><a href="${base}/blog/">博客</a></li>
                 <li><a href="${base}/beauty/">美图</a></li>
                 <li><a href="${base}/video/">视频</a></li>
+                <li><a href="http://bbs.liuyunfei.cn">BBS</a></li>
             </ul>
         </div>
 
@@ -89,7 +90,10 @@
 
     </div>
     <div class="am_info_line">Copyright(c)2016 <span>${siteName }</span> All Rights Reserved </div>
-    <div class="am_info_line-beian">鄂ICP备15010072号</div>
+    <div class="am_info_line-beian">鄂ICP备15010072号
+	<script language="javascript" type="text/javascript" src="http://js.users.51.la/18754694.js"></script>
+<noscript><a href="http://www.51.la/?18754694" target="_blank"><img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="http://img.users.51.la/18754694.asp" style="border:none" /></a></noscript>
+	</div>
     <c:if test="${isPhone}">
 		<div data-am-widget="gotop" class="am-gotop am-gotop-fixed">
 		  <a href="#top" title="回到顶部">
@@ -102,69 +106,71 @@
 
 <!-- 登陆和注册 -->
  <c:if test="${empty sessionScope.loginUser}">
-	<div class="am-modal am-modal-no-btn" tabindex="-1" id="login-modal">
-	  <div class="am-modal-dialog">
-	    <div class="am-modal-hd">LovePanda登陆
-	      <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
-	    </div>
-	    <div class="am-modal-bd">
-	      	<div class="am-tabs" id="login-tabs">
+	 <div class="am-popup"  id="login-modal">
+	  <div class="am-popup-inner">
+		<div class="am-popup-hd">
+		  <h4 class="am-popup-title">LovePanda登陆</h4>
+		  <span data-am-modal-close
+				class="am-close">&times;</span>
+		</div>
+		<div class="am-popup-bd">
+			<div class="am-tabs" id="login-tabs">
 			  <ul class="am-tabs-nav am-nav am-nav-tabs">
 			    <li class="am-active"><a href="">登陆</a></li>
 			    <c:if test="${systemRegisterOpen==1}">
 			    <li><a href="">注册</a></li>
 			    </c:if>
 			  </ul>
-			  <div class="am-tabs-bd">
-			    <div  class="am-tab-panel am-fade am-active  am-in ">
-			    	<form id="loginform" action="${base}/login" class="am-form" method="post">
-			    		<div class="am-form-group">
-					      <label for="login-username">用户名</label>
-					      <input type="text" class="" name="user.username" id="login-username" placeholder="请输入用户名" required>
-					    </div>
-					
-					    <div class="am-form-group">
-					      <label for="login-password">密码</label>
-					      <input type="password" class="" name="user.password" id="login-password" placeholder="请输入密码" required>
-					    </div>
-					    <button type="submit" class="am-btn am-btn-secondary ">提交</button>
-			    	</form>
-			    </div>
-			    <c:if test="${systemRegisterOpen==1}">
-			    <div class="am-tab-panel am-fade">
-			    	<form id="registerform" data-am-validator action="${base}/register" class="am-form" method="post" enctype="multipart/form-data">
-			    		<div class="am-form-group">
-					      <label for="login-username">用户名</label>
-					      <input type="text" class="" name="user.username" id="login-username" pattern="^[a-zA-Z]\w{2,14}$" placeholder="请输入用户名（3~15位数字字母下划线）" required>
-					    </div>
-			    		<div class="am-form-group">
-					      <label for="login-realname">昵称</label>
-					      <input type="text" class="" name="user.realname" id="login-realname" maxlength="6" placeholder="请输入呢称（&lt;=6位任意字符）" required>
-					    </div>
-						<div class="am-form-group">
-					      <label for="login-mail">邮件</label>
-					      <input type="email" class="" name="user.mail" id="login-mail"  placeholder="请输入电子邮件" required>
-					    </div>
-					    <div class="am-form-group">
-					      <label for="login-password">密码</label>
-					      <input type="password" class="" name="user.password" id="login-password" placeholder="请输入密码" required>
-					    </div>
-					    <div class="am-form-group">
-					      <label for="login-password">重复密码</label>
-					      <input type="password" class="" name="password_ag" id="login-password" placeholder="请再次输入密码" required>
-					    </div>
-					    <button type="submit" class="am-btn am-btn-secondary ">提交</button>
-			    	</form>
-			    </div>
-			    </c:if>
-			  </div>
+				<div class="am-tabs-bd">
+				   <div  class="am-tab-panel am-fade am-active  am-in ">
+						<form id="loginform" action="${base}/login" class="am-form" method="post">
+							<div class="am-form-group">
+							  <label for="login-username">用户名</label>
+							  <input type="text" class="" name="user.username" id="login-username" placeholder="请输入用户名" required>
+							</div>
+						
+							<div class="am-form-group">
+							  <label for="login-password">密码</label>
+							  <input type="password" class="" name="user.password" id="login-password" placeholder="请输入密码" required>
+							</div>
+							<button type="submit" class="am-btn am-btn-secondary ">提交</button>
+						</form>
+					 </div>
+					<c:if test="${systemRegisterOpen==1}">
+					<div class="am-tab-panel am-fade">
+						<form id="registerform" data-am-validator action="${base}/register" class="am-form" method="post" enctype="multipart/form-data">
+							<div class="am-form-group">
+							  <label for="login-username">用户名</label>
+							  <input type="text" class="" name="user.username" id="login-username" pattern="^[a-zA-Z]\w{2,14}$" placeholder="请输入用户名（3~15位数字字母下划线）" required>
+							</div>
+							<div class="am-form-group">
+							  <label for="login-realname">昵称</label>
+							  <input type="text" class="" name="user.realname" id="login-realname" maxlength="6" placeholder="请输入呢称（&lt;=6位任意字符）" required>
+							</div>
+							<div class="am-form-group">
+							  <label for="login-mail">邮件</label>
+							  <input type="email" class="" name="user.mail" id="login-mail"  placeholder="请输入电子邮件" required>
+							</div>
+							<div class="am-form-group">
+							  <label for="login-password">密码</label>
+							  <input type="password" class="" name="user.password" id="login-password" placeholder="请输入密码" required>
+							</div>
+							<div class="am-form-group">
+							  <label for="login-password">重复密码</label>
+							  <input type="password" class="" name="password_ag" id="login-password" placeholder="请再次输入密码" required>
+							</div>
+							<button type="submit" class="am-btn am-btn-secondary ">提交</button>
+						</form>
+					</div>
+					</c:if>
+				</div>
 			</div>
-			<script>
-			  $(function() {
-			    $('#login-tabs').tabs();
-			  });
-			</script>
-	    </div>
+		</div>
 	  </div>
 	</div>
+	<script>
+	  $(function() {
+	    $('#login-tabs').tabs();
+	  });
+	</script>
  </c:if>

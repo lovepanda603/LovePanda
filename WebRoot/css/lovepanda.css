@@ -29,6 +29,26 @@ color: #666;
 		width: 100%;
 	}
 }
+@media only screen and (max-width: 870px){
+	.blog-img h2  a {
+		font-size: 15px;
+	}
+	.blog-content-show{
+		font-size:12px !important;
+	}
+	.blog-keyword-show{
+		font-size:12px;
+	}
+	.beauty-inner-box .blog-header h2{
+		font-size:15px;
+	}
+	.beauty-content-show{
+		font-size:12px !important;
+	}
+	.tag{
+		padding: 1px 2px !important;
+	}
+}
 a{
 	text-decoration: none;
 	color: #333;
