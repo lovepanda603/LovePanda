@@ -43,7 +43,7 @@ import com.jfinal.ext.handler.ContextPathHandler;
 import com.jfinal.kit.PathKit;
 import com.jfinal.kit.PropKit;
 import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
-import com.jfinal.plugin.activerecord.tx.TxByRegex;
+import com.jfinal.plugin.activerecord.tx.TxByMethodRegex;
 import com.jfinal.plugin.druid.DruidPlugin;
 import com.jfinal.plugin.druid.DruidStatViewHandler;
 import com.jfinal.plugin.ehcache.EhCachePlugin;
@@ -64,10 +64,9 @@ public class MyConfig extends JFinalConfig
         logger.info("配置常量开始..");
         PropKit.use("config.properties"); // 加载少量必要配置，随后可用PropKit.get(...)获取值
         me.setDevMode(PropKit.getBoolean("devMode", false));
-        me.setViewType(ViewType.JSP); // 设置视图类型为Jsp，否则默认为FreeMarker
+        me.setViewType(ViewType.JSP);// 2.2中默认的视图为jsp
         me.setBaseViewPath("/WEB-INF/content");
-        me.setUploadedFileSaveDirectory(
-                PathKit.getWebRootPath() + "/attached/temp");
+        me.setBaseUploadPath(PathKit.getWebRootPath() + "/attached/temp");// 2.2中有所改动
         me.setEncoding("utf-8");
         me.setError404View("/WEB-INF/content/common/404.jsp");
         me.setError500View("/WEB-INF/content/common/500.jsp");
@@ -110,6 +109,7 @@ public class MyConfig extends JFinalConfig
         me.add(arp);
         arp.setDevMode(true);
         arp.setShowSql(true);
+        // 此项目并没有用到jfinal2.2的javabean与model的合体，感兴趣的可以参照jfinal官网的demo
         arp.addMapping("blog", Blog.class); // 映射blog 表到 Blog模型
         arp.addMapping("user", User.class);// 用户
         arp.addMapping("qquser", Qquser.class);// qq用户
@@ -136,7 +136,7 @@ public class MyConfig extends JFinalConfig
         logger.info("配置全局拦截器开始..");
         me.addGlobalActionInterceptor(new PhoneInterceptor());
         me.addGlobalActionInterceptor(new LogInterceptor());
-        me.add(new TxByRegex("(.*save.*|.*update.*|.*delete.*)"));
+        me.add(new TxByMethodRegex("(.*save.*|.*update.*|.*delete.*)"));// 2.2改动
         logger.info("配置全局拦截器结束..");
     }
 
@@ -188,6 +188,13 @@ public class MyConfig extends JFinalConfig
         TimerManager tm = new TimerManager();
         tm.init();
         logger.info("afterJFinalStart结束..");
+    }
+
+    @Override
+    public void beforeJFinalStop()
+    {
+        beforeJFinalStop();
+        logger.info("beforeJFinalStop结束");
     }
 
     public static void main(String[] args)

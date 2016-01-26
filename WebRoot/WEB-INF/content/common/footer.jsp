@@ -68,9 +68,9 @@
             <dl>
                 <dt><img src="${base}/images/footer/64.png" alt=""></dt>
                 <dd>LovePanda博客欢迎你常来逛逛，本博客是博主采用java和Amaze UI等技术自主开发而成。本博客支持注册用户发表个人博客，拥有强大的后台管理功能。本博客在博主开发完成后会开源到GIT上。
-                    <a href="http://git.oschina.net/" target="_blank" class="footdon_pg ">
+                    <a href="http://git.oschina.net/lovepanda603/lovepanda" target="_blank" class="footdon_pg ">
                         <div class="foot_d_pg am-icon-git "> Git@OSC</div>
-                    </a><a href="https://pages.github.com/" target="_blank" class="footdon_az animated">
+                    </a><a href="https://github.com/lovepanda603/LovePanda" target="_blank" class="footdon_az animated">
                         <div class="foot_d_az am-icon-github"> GitHub</div>
                     </a></dd>
 

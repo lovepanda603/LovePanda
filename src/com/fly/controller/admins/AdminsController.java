@@ -1577,6 +1577,8 @@ public class AdminsController extends BaseController
         renderJson(v);
     }
 
+    @Before(EvictInterceptor.class)
+    @CacheName("index")
     public void editVideoLevel()
     {
         int id = getParaToInt("id");
@@ -1591,6 +1593,8 @@ public class AdminsController extends BaseController
         renderJsp("/WEB-INF/content/common/result.jsp");
     }
 
+    @Before(EvictInterceptor.class)
+    @CacheName("index")
     public void videoDelete()
     {
         int id = getParaToInt();

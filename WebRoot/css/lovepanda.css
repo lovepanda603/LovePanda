@@ -262,7 +262,9 @@ img{
 	vertical-align: middle;
 	width: 100%;
 }
-
+.blog-img .am-g .am-u-sm-3 {
+    padding: 0;
+}
 .blog-header{
 	display: block;
 	margin-bottom: 10px;
@@ -476,7 +478,9 @@ img{
 .beauty-inner-box img{
 	max-height: 150px;
 }
-
+.beauty-inner-box .am-g .am-u-sm-3{
+	padding: 0;
+} 
 .beauty-myBeauty-delete{
 	
 }

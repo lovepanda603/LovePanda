@@ -138,7 +138,7 @@ $(document).ready(function(){
 <!-- 站内搜索 -->
 <div class="side-box">
 	<div class="my-side-title">
-		<span class="am-icon-tag"> 站内搜索</span>
+		<span class="am-icon-search"> 站内搜索</span>
 	</div>
 	<div>
 		<form class="" action="${base}/index/search/" method="get">
