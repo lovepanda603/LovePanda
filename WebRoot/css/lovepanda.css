@@ -256,14 +256,16 @@ img{
 }
 .blog-img .blog-a-curse{
 	vertical-align: middle;
-	float: left;
 }
 .blog-img .blog-a-curse img{
 	vertical-align: middle;
 	width: 100%;
 }
 .blog-img .am-g .am-u-sm-3 {
-    padding: 0;
+    padding: 5px;
+}
+.blog-img .am-g .am-u-sm-9 {
+    padding-left:5px;
 }
 .blog-header{
 	display: block;
@@ -479,8 +481,11 @@ img{
 	max-height: 150px;
 }
 .beauty-inner-box .am-g .am-u-sm-3{
-	padding: 0;
-} 
+	padding: 5px;
+}
+.beauty-inner-box .am-g .am-u-sm-9{
+	padding-left:5px;
+}  
 .beauty-myBeauty-delete{
 	
 }
