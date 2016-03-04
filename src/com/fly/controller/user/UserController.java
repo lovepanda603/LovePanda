@@ -17,7 +17,7 @@ import com.fly.entity.User;
 import com.fly.entity.Userrole;
 import com.fly.entity.Video;
 import com.fly.interceptor.LoginInterceptor;
-import com.fly.util.ImageMagicUtil;
+import com.fly.util.ImageUtil;
 import com.fly.util.Utility;
 import com.jfinal.aop.Before;
 import com.jfinal.kit.PathKit;
@@ -238,7 +238,7 @@ public class UserController extends BaseController
             // ImageUtil.cutImage(src, dest, x, y, w, h, suffix);
             try
             {
-                ImageMagicUtil.cutImage(src, dest, x, y, w, h);
+                ImageUtil.cutImage(src, dest, x, y, w, h, "jpg");
             }
             catch (Exception e)
             {
@@ -283,7 +283,7 @@ public class UserController extends BaseController
             }
             System.out.println(1);
             // ImageUtil.cutImage(src, dest, x, y, w, h, suffix);
-            ImageMagicUtil.cutImage(src, dest, x, y, w, h);
+            ImageUtil.cutImage(src, dest, x, y, w, h, "jpg");
             // try
             // {
             // }

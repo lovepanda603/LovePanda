@@ -17,7 +17,7 @@ import com.fly.interceptor.EditOpenInterceptor;
 import com.fly.interceptor.LoginInterceptor;
 import com.fly.util.ClearTemp;
 import com.fly.util.HtmlUtil;
-import com.fly.util.ImageMagicUtil;
+import com.fly.util.ImageUtil;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.jfinal.aop.Before;
@@ -140,10 +140,7 @@ public class BeautyController extends BaseController
         String saveFilename = path + fileNmae;
         try
         {
-            ImageMagicUtil.CMYK2RGB(saveFilename, saveFilename);
-            ImageMagicUtil.strip(saveFilename, saveFilename);
-            ImageMagicUtil.resize(saveFilename, path + "s_" + fileNmae, 180,
-                    150);
+            ImageUtil.resize(180, 150, saveFilename, path + "s_" + fileNmae);
         }
         catch (Exception e)
         {

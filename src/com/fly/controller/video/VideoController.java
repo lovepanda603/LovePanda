@@ -16,7 +16,7 @@ import com.fly.interceptor.EditOpenInterceptor;
 import com.fly.interceptor.LoginInterceptor;
 import com.fly.util.ClearTemp;
 import com.fly.util.HtmlUtil;
-import com.fly.util.ImageMagicUtil;
+import com.fly.util.ImageUtil;
 import com.jfinal.aop.Before;
 import com.jfinal.kit.PathKit;
 import com.jfinal.plugin.activerecord.Page;
@@ -106,10 +106,7 @@ public class VideoController extends BaseController
         video.set("image", fileNmae);
         try
         {
-            ImageMagicUtil.CMYK2RGB(saveFilename, saveFilename);
-            ImageMagicUtil.strip(saveFilename, saveFilename);
-            ImageMagicUtil.resize(saveFilename, path + "s_" + fileNmae, 200,
-                    112);
+            ImageUtil.resize(200, 112, saveFilename, path + "s_" + fileNmae);
         }
         catch (Exception e)
         {
@@ -313,10 +310,8 @@ public class VideoController extends BaseController
             old.set("image", fileNmae);
             try
             {
-                ImageMagicUtil.CMYK2RGB(saveFilename, saveFilename);
-                ImageMagicUtil.strip(saveFilename, saveFilename);
-                ImageMagicUtil.resize(saveFilename, path + "s_" + fileNmae, 200,
-                        112);
+                ImageUtil.resize(200, 112, saveFilename,
+                        path + "s_" + fileNmae);
             }
             catch (Exception e)
             {
