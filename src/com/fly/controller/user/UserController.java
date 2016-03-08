@@ -230,12 +230,9 @@ public class UserController extends BaseController
         String suffix = suffixarr[suffixarr.length - 1];
         if ("default".equals(avatar))
         {
-            src = getRequest().getServletContext()
-                    .getRealPath("/attached/avatar/") + "\\default.jpg";
+            src = PathKit.getWebRootPath() + "/attached/avatar/default.jpg";
             String newavatar = UUID() + ".jpg";
-            dest = getRequest().getServletContext()
-                    .getRealPath("/attached/avatar/") + "\\" + newavatar;
-            // ImageUtil.cutImage(src, dest, x, y, w, h, suffix);
+            dest = PathKit.getWebRootPath() + "/attached/avatar/" + newavatar;
             try
             {
                 ImageUtil.cutImage(src, dest, x, y, w, h, "jpg");
@@ -263,17 +260,14 @@ public class UserController extends BaseController
         {
             if (avatar.equals(oldUser.getStr("avatar")))
             {
-                src = getRequest().getServletContext()
-                        .getRealPath("/attached/avatar/") + "\\" + avatar;
+                src = PathKit.getWebRootPath() + "/attached/avatar/" + avatar;
             }
             else
             {
-                src = getRequest().getServletContext()
-                        .getRealPath("/attached/temp/") + "\\" + avatar;
+                src = PathKit.getWebRootPath() + "/attached/temp/" + avatar;
             }
             String newavatar = UUID() + ".jpg";
-            dest = getRequest().getServletContext()
-                    .getRealPath("/attached/avatar/") + "\\" + newavatar;
+            dest = PathKit.getWebRootPath() + "/attached/avatar/" + newavatar;
             if (!new File(src).exists())
             {
                 message = "头像原文件不存在，请重新上传";

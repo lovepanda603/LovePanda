@@ -1,6 +1,7 @@
 
 package com.fly.uibutil;
 
+import java.io.File;
 import java.lang.management.GarbageCollectorMXBean;
 import java.lang.management.ManagementFactory;
 import java.net.InetAddress;
@@ -8,19 +9,13 @@ import java.net.UnknownHostException;
 import java.util.List;
 
 import org.apache.log4j.Logger;
-import org.hyperic.sigar.FileSystem;
-import org.hyperic.sigar.FileSystemUsage;
-import org.hyperic.sigar.Sigar;
-import org.hyperic.sigar.SigarException;
 
 import com.sun.management.OperatingSystemMXBean;
 
 /**
  * 系统环境相关
  * 
- * @author 董华健 2012-9-7
- *         下午2:09:41,由lovepanda二次开发，原版为jfinaluib里的部分代码。改写的部分主要是利用sigar包，
- *         为了兼容jdk1 .6。不过后来我的项目采用了jdk1.8.但是此部分代码还是保留了下来，为了部分1.6的机器上能够跑次程序。
+ * @author lovepanda
  */
 public class ToolOS
 {
@@ -103,7 +98,7 @@ public class ToolOS
     /**
      * 获取java系统环境变量
      * 
-     * @author 董华健 2012-9-7 下午2:18:07
+     * @author lovepanda 2016年3月4日15:06:42
      * @param key
      * @return
      */
@@ -177,7 +172,7 @@ public class ToolOS
     /**
      * 获取操作系统类型名称
      * 
-     * @author 董华健 2012-9-7 下午2:17:42
+     * @author lovepanda 2016年3月4日15:06:42
      * @return
      */
     public static String getOsName()
@@ -188,7 +183,7 @@ public class ToolOS
     /**
      * 操作系统的体系结构 如:x86
      * 
-     * @author 董华健 2012-9-7 下午2:17:59
+     * @author lovepanda 2016年3月4日15:06:42
      * @return
      */
     public static String getOsArch()
@@ -199,7 +194,7 @@ public class ToolOS
     /**
      * 获取CPU数量
      * 
-     * @author 董华健 2012-9-7 下午2:18:18
+     * @author lovepanda 2016年3月4日15:06:42
      * @return
      */
     public static int getOsCpuNumber()
@@ -215,17 +210,7 @@ public class ToolOS
      */
     public static double getOscpuRatio()
     {
-        try
-        {
-            Sigar sigar = new Sigar();
-
-            return sigar.getCpuPerc().getCombined();
-        }
-        catch (SigarException e)
-        {
-            log.error("cpu使用率获取出错");
-            return 0;
-        }
+        return osmxb.getSystemCpuLoad();
 
     }
 
@@ -251,44 +236,46 @@ public class ToolOS
         return freePhysicalMemorySize;
     }
 
+    /**
+     * 获取硬盘总大小（所有的盘符）
+     * 
+     * @return
+     */
     public static long getOsDiskMemory()
     {
-        try
+        File[] roots = File.listRoots();// 获取磁盘分区列表
+        long all = 0l;
+        for (File file : roots)
         {
-            Sigar sigar = new Sigar();
-            sigar.getFileSystemUsage("C:\\");
-            FileSystem fslist[] = sigar.getFileSystemList();
-            FileSystem fs = fslist[0];
-            FileSystemUsage usage = sigar.getFileSystemUsage(fs.getDirName());
-            return usage.getTotal() / K1M;
+            long e = file.getTotalSpace() / K2M;
+            all += e;
         }
-        catch (SigarException e)
-        {
-            return 0;
-        }
+        return all;
+
     }
 
+    /**
+     * 获取硬盘剩余空间
+     * 
+     * @author lovepanda 2016年3月4日15:08:17
+     * @return
+     */
     public static long getOsDiskFreeMemory()
     {
-        try
+        File[] roots = File.listRoots();// 获取磁盘分区列表
+        long all = 0l;
+        for (File file : roots)
         {
-            Sigar sigar = new Sigar();
-            sigar.getFileSystemUsage("C:\\");
-            FileSystem fslist[] = sigar.getFileSystemList();
-            FileSystem fs = fslist[0];
-            FileSystemUsage usage = sigar.getFileSystemUsage(fs.getDirName());
-            return usage.getFree() / K1M;
+            long e = file.getFreeSpace() / K2M;
+            all += e;
         }
-        catch (SigarException e)
-        {
-            return 0;
-        }
+        return all;
     }
 
     /**
      * JVM内存，内存总量，单位：M
      * 
-     * @author 董华健 2012-10-9 上午11:24:02
+     * @author lovepanda 2016年3月4日15:06:42
      * @return
      */
     public static long getJvmTotalMemory()
@@ -299,7 +286,7 @@ public class ToolOS
     /**
      * JVM内存，空闲内存量，单位：M
      * 
-     * @author 董华健 2012-10-9 上午11:24:35
+     * @author lovepanda 2016年3月4日15:06:42
      * @return
      */
     public static long getJvmFreeMemory()
@@ -310,7 +297,7 @@ public class ToolOS
     /**
      * JVM内存，最大内存量，单位：M
      * 
-     * @author 董华健 2012-10-9 上午11:24:50
+     * @author lovepanda 2016年3月4日15:06:42
      * @return
      */
     public static long getJvmMaxMemory()
@@ -336,7 +323,7 @@ public class ToolOS
     /**
      * 系统线程列表
      * 
-     * @author 董华健 2012-10-9 上午11:26:39
+     * @author lovepanda 2016年3月4日15:06:42
      * @return
      */
     public static List<Thread> getJvmThreads()
@@ -349,7 +336,7 @@ public class ToolOS
 
     public static void main(String[] args)
     {
-        System.out.println(getOsLocalHostIp());
+
     }
 
 }
