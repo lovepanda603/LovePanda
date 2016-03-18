@@ -234,7 +234,7 @@ public class BeautyController extends BaseController
             return;
         }
         User user = Constants.getLoginUser(getSession());
-        if (user.getInt("id") != beauty.getInt("user_id"))
+        if (user.getInt("id").intValue() != beauty.getInt("user_id").intValue())
         {
             message = "非法操作";
             setAttr("message", message);

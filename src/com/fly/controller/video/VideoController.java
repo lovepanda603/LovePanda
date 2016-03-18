@@ -215,7 +215,8 @@ public class VideoController extends BaseController
             return;
         }
         User loginUser = Constants.getLoginUser(getSession());
-        if (video.getInt("user_id") != loginUser.getInt("id"))
+        if (video.getInt("user_id").intValue() != loginUser.getInt("id")
+                .intValue())
         {
             message = "您执行了非法操作！";
             setAttr("message", message);
@@ -246,7 +247,8 @@ public class VideoController extends BaseController
             return;
         }
         User loginUser = Constants.getLoginUser(getSession());
-        if (video.getInt("user_id") != loginUser.getInt("id"))
+        if (video.getInt("user_id").intValue() != loginUser.getInt("id")
+                .intValue())
         {
             message = "您执行了非法操作！";
             setAttr("message", message);
@@ -289,7 +291,7 @@ public class VideoController extends BaseController
             return;
         }
         User user = Constants.getLoginUser(getSession());
-        if (user.getInt("id") != old.getInt("user_id"))
+        if (user.getInt("id").intValue() != old.getInt("user_id").intValue())
         {
             message = "非法操作！";
             setAttr("message", message);

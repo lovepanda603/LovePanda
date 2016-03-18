@@ -210,7 +210,7 @@ public class BlogController extends BaseController
     {
         Blog b = Blog.me.findById(getParaToInt());
         User u = Constants.getLoginUser(getSession());
-        if (b.getInt("user_id") != u.getInt("id"))
+        if (b.getInt("user_id").intValue() != u.getInt("id").intValue())
         {
             message = "您进行了非法操作！";
             setAttr("message", message);
@@ -244,8 +244,8 @@ public class BlogController extends BaseController
         }
         else
         {
-            if (b.getInt("ispublic") == 0
-                    && u.getInt("id") != b.getInt("user_id"))
+            if (b.getInt("ispublic") == 0 && u.getInt("id").intValue() != b
+                    .getInt("user_id").intValue())
             {
                 message = "您进行了非法操作！";
                 setAttr("message", message);
@@ -302,7 +302,7 @@ public class BlogController extends BaseController
     {
         Blog b = getModel(Blog.class);
         User u = Constants.getLoginUser(getSession());
-        if (b.getInt("user_id") != u.getInt("id"))
+        if (b.getInt("user_id").intValue() != u.getInt("id").intValue())
         {
             message = "您进行了非法操作！";
             setAttr("message", message);
@@ -364,7 +364,7 @@ public class BlogController extends BaseController
     {
         Blog b = Blog.me.findById(getParaToInt(0));
         User u = Constants.getLoginUser(getSession());
-        if (b.getInt("user_id") != u.getInt("id"))
+        if (b.getInt("user_id").intValue() != u.getInt("id").intValue())
         {
             message = "您进行了非法操作！请尝试重新登录后再操作。";
             setAttr("message", message);
